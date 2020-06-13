@@ -36,7 +36,7 @@ static void TWIN_parse(struct xt_option_call *cb)
 static void TWIN_save(const void *ip, const struct xt_entry_target *target)
 {
 	const struct ipt_TWIN_info *info = (struct ipt_TWIN_info *) target->data;
-	printf(" --tcpwin-set %u", ntohs(info->win));
+	printf(" --tcpwin-set %u", info->win);
 	if(info->wscale)
 		printf(" --wscale");
 }
@@ -44,7 +44,7 @@ static void TWIN_save(const void *ip, const struct xt_entry_target *target)
 static void TWIN_print(const void *ip, const struct xt_entry_target *target, int numeric)
 {
 	const struct ipt_TWIN_info *info = (struct ipt_TWIN_info *) target->data;
-	printf(" TCP window %u", ntohs(info->win));
+	printf(" TCP window %u", info->win);
 	if(info->wscale)
 		printf(" with wscale");
 }
